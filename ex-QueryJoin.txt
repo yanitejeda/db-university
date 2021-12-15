@@ -1,0 +1,43 @@
+1. Selezionare tutti gli studenti iscritti al Corso di Laurea in Economia
+
+    -SELECT `students`.`name`, `degrees`.`name` 
+    FROM`degrees` INNER JOIN `students` 
+    ON `degrees`.`name`='Corso di Laurea in Economia'    
+2. Selezionare tutti i Corsi di Laurea del Dipartimento di Neuroscienze
+
+    -SELECT `courses`.`name`, `departments`.`name` 
+    FROM`departments` 
+    INNER JOIN `courses` 
+    ON `departments`.`name`= 'Dipartimento di Neuroscienze'
+3. Selezionare tutti i corsi in cui insegna Fulvio Amato (id=44)
+
+
+    -SELECT * 
+    FROM `course_teacher`
+    INNER JOIN `courses`
+    WHERE `teacher_id` LIKE '%44%'
+4. Selezionare tutti gli studenti con i dati relativi al corso di laurea a cui sono iscritti e il
+    relativo dipartimento, in ordine alfabetico per cognome e nome
+
+    -SELECT `students`.`name`,`students`.`surname`,`courses`.`name`,`courses`.`degree_id` ,`departments`.`name` 
+    FROM `students` 
+    INNER JOIN `courses` 
+    ON `students`.`degree_id` = `courses`.`degree_id` 
+    INNER JOIN `departments` 
+    ON`departments`.`id`=`courses`.`degree_id` 
+    ORDER BY `students`.`name`,`students`.`surname`
+
+
+5. Selezionare tutti i corsi di laurea con i relativi corsi e insegnanti
+    -SELECT`courses`.`name`,`departments`.`name` 
+    FROM `departments` 
+    INNER JOIN `courses`
+
+6. Selezionare tutti i docenti che insegnano nel Dipartimento di Matematica (54)
+
+    -SELECT`teachers`.`name`,`departments`.`name` 
+    FROM `departments` 
+    INNER JOIN `teachers` 
+    ON `departments`.`name`='Dipartimento di Matematica'
+7. BONUS: Selezionare per ogni studente quanti tentativi d’esame ha sostenuto per
+superare ciascuno dei suoi esami
