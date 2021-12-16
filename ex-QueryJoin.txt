@@ -39,5 +39,10 @@
     FROM `departments` 
     INNER JOIN `teachers` 
     ON `departments`.`name`='Dipartimento di Matematica'
+
 7. BONUS: Selezionare per ogni studente quanti tentativi d’esame ha sostenuto per
 superare ciascuno dei suoi esami
+
+    -SELECT`students`.`name`,`exam_student`.`student_id`,`exam_student`.`vote`,`exam_student`.`exam_id` 
+    FROM `exam_student` INNER JOIN `students`
+     ON `exam_student`.`student_id` = `students`.`id`
